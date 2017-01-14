@@ -12,7 +12,7 @@
     "Stella API wrapper",
     "client"
   ],
-  "url": "http://github.com/Stellaverse/stella-node-client",
+  "url": "https://github.com/Stellaverse/stella-node-client",
   "homepage": "https://www.stellaverse.com",
   "author": {
     "name": "Aaron J Ban",
