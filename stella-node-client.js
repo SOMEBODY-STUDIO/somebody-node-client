@@ -26,7 +26,7 @@ exports.api = {
 			
 			if (response.statusCode !== 200) {
 				return callback({
-					error : 'Unknown Error'
+					error : 'An Error Occurred'
 				});
 			}
 			
