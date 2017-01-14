@@ -1,0 +1,34 @@
+{
+  "name": "stella",
+  "version": "0.0.19",
+  "description": "The official node.js client for Stella",
+  "keywords": [
+    "Stella",
+    "Stellaverse",
+    "Stella CMS",
+    "CMS",
+    "Stella API",
+    "Stella CMS wrapper",
+    "Stella API wrapper",
+    "client"
+  ],
+  "url": "http://github.com/Stellaverse/stella-node-client",
+  "homepage": "https://www.stellaverse.com",
+  "author": {
+    "name": "Aaron J Ban",
+    "email": "ajb@stellaverse.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stellaverse/stella-node-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stellaverse/stella-node-client/issues"
+  },
+  "readme": "Stella Node.js Client",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "request": "2.79.0"
+  },
+  "main": "./stella-node-client.js"
+}
