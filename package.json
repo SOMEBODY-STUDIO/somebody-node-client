@@ -1,16 +1,17 @@
 {
   "name": "stella",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "The official node.js client for Stella",
   "keywords": [
     "Stella",
     "Stellaverse",
     "Stella CMS",
     "CMS",
+	"Stella Drive",
     "Stella API",
+	"Stella API Sugar",
     "Stella CMS wrapper",
     "Stella API wrapper",
-    "client"
   ],
   "url": "https://github.com/Stellaverse/stella-node-client",
   "homepage": "https://www.stellaverse.com",
