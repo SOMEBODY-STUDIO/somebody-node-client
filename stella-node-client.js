@@ -21,7 +21,7 @@ exports.api = {
 			headers : {
 				'stella-api' : api,
 				'stella-api-version' : version,
-				'stella-projectID' : projectID,
+				'stella-project-id' : projectID,
 				'stella-auth' : Buffer.from(auth,'utf8').toString('base64')
 			},
 			uri : url,
