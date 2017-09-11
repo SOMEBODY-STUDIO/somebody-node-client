@@ -19,10 +19,10 @@ exports.api = {
 		var httpRequest = {
 			method : method,
 			headers : {
-				'stella-api' : api,
-				'stella-api-version' : version,
-				'stella-project-id' : projectID,
-				'stella-auth' : Buffer.from(auth,'utf8').toString('base64')
+				'Stella-Api' : api,
+				'Stella-Api-Version' : version,
+				'Stella-Project-Id' : projectID,
+				'Stella-Auth' : Buffer.from(auth,'utf8').toString('base64')
 			},
 			uri : url,
 			qs : request.params,
