@@ -5,14 +5,14 @@ module.exports = function initializeUpload(uploadID) {
 
 	var upload = stella.$db.get('up-uploads-' + uploadID);
 
-	var to = upload.to || 'project';
+	var to = upload.to || 'drive';
 	var file = upload.file;
 
 	if (to === 'account') {
 		var api = 'accounts.files.insertFile';
 	}
 
-	if (to === 'project') {
+	if (to === 'drive') {
 		var api = 'drive.objects.insertObject';
 	}
 
