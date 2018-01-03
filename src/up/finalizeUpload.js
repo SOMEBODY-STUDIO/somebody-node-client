@@ -23,6 +23,7 @@ module.exports = function finalizeUpload(uploadID) {
 		url : upload.api.url || stella.config.api.url,
 		method : 'post',
 		api : api,
+		projectID : upload.projectID || stella.config.projectID,
 		params : params,
 		auth : upload.auth
 	}, function(result) {

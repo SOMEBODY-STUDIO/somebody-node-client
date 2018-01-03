@@ -20,6 +20,7 @@ module.exports = function initializeUpload(uploadID) {
 		method : 'post',
 		url : upload.api.url || stella.config.api.url,
 		api : api,
+		projectID : upload.projectID || stella.config.projectID,
 		params : {
 			file : {
 				name : file.name,
