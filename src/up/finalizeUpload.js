@@ -13,7 +13,7 @@ module.exports = function finalizeUpload(uploadID) {
 	}
 
 	if (upload.to === 'project') {
-		var api = 'drive.objects.finalizeUpload';
+		var api = 'drive.objects.finalizeObjectUpload';
 		var params = {
 			objectID : upload.objectID
 		};
