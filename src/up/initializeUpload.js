@@ -6,14 +6,25 @@ module.exports = function initializeUpload(uploadID) {
 	var upload = stella.$db.get('up-uploads-' + uploadID);
 
 	var to = upload.to || 'drive';
-	var file = upload.file;
 
 	if (to === 'account') {
 		var api = 'accounts.files.insertFile';
+		var params = {
+			file : {
+				name : upload.file.name,
+				size : upload.file.size
+			}
+		};
 	}
 
 	if (to === 'drive') {
 		var api = 'drive.objects.insertObject';
+		var params = {
+			locale : upload.locale,
+			parentID : upload.parentID,
+			objectType : upload.objectType,
+			title : upload.file.name
+		};
 	}
 
 	stella.api.request({
@@ -21,12 +32,7 @@ module.exports = function initializeUpload(uploadID) {
 		url : upload.api.url || stella.config.api.url,
 		api : api,
 		projectID : upload.projectID || stella.config.projectID,
-		params : {
-			file : {
-				name : file.name,
-				size : file.size
-			}
-		},
+		params : params,
 		auth : upload.auth
 	}, function(result) {
 
