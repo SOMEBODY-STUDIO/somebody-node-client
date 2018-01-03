@@ -54,7 +54,7 @@ module.exports = function initializeUpload(uploadID) {
 
 		}
 
-		if (to === 'project') {
+		if (to === 'drive') {
 
 			var object = result.data.object;
 

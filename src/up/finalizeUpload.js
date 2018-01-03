@@ -12,7 +12,7 @@ module.exports = function finalizeUpload(uploadID) {
 		};
 	}
 
-	if (upload.to === 'project') {
+	if (upload.to === 'drive') {
 		var api = 'drive.objects.finalizeObjectUpload';
 		var params = {
 			objectID : upload.objectID
@@ -42,7 +42,7 @@ module.exports = function finalizeUpload(uploadID) {
 
 		stella.$db.del('up-uploads-' + upload.id);
 		stella.$db.del('up-uploaders-' + upload.id);
-		
+
 		return upload.onComplete(upload);
 
 	});
