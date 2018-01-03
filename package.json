@@ -1,18 +1,18 @@
 {
   "name": "stella",
-  "version": "0.0.23",
+  "version": "1.0.0",
   "description": "The official node.js client for Stella",
   "keywords": [
     "Stella",
     "Stellaverse",
-	"Stella Drive",
+    "Stella Drive",
     "Stella API",
-	"Stella API Sugar",
+    "Stella API Sugar",
     "Stella API wrapper",
-	"Stella CMS",
+    "Stella CMS",
     "Stella CMS Wrapper",
-	"Headless CMS",
-	"CMS"
+    "Headless CMS",
+    "CMS"
   ],
   "url": "https://github.com/Stellaverse/stella-node-client",
   "homepage": "https://www.stellaverse.com",
@@ -30,7 +30,14 @@
   "readme": "Stella Node.js Client",
   "readmeFilename": "README.md",
   "dependencies": {
+    "aws-sdk": "^2.175.0",
+    "node-uuid": "^1.4.8",
     "request": "2.79.0"
   },
-  "main": "./stella-node-client.js"
+  "main": "./stella-node-client.js",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "chai": "^4.1.2",
+    "should": "^13.1.3"
+  }
 }

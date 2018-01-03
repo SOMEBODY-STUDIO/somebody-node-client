@@ -7,13 +7,12 @@ var httpClient = require('request');
 
 module.exports = function (request, callback) {
 
-	var method = request.method || 'get';
-	method = method.toLowerCase();
+	var method = request.method.toLowerCase() || 'get';
 	var url = request.url || 'https://api.stellaverse.com';
 	var api = request.api;
 	var version = request.version || 1;
 	var projectID = request.projectID || '000000000000';
-	var auth = JSON.stringify(request.auth);
+	var auth = JSON.stringify(request.auth) || {};
 
 	var httpRequest = {
 		method : method,
