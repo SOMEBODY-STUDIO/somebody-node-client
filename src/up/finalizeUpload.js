@@ -31,8 +31,8 @@ module.exports = function finalizeUpload(uploadID) {
 
 			upload.status = 'error';
 			upload.error = result.error;
-
-			stella.$db.set('up-uploads-' + upload.id, upload);
+			stella.$db.del('up-uploads-' + upload.id);
+			stella.$db.del('up-uploaders-' + upload.id);
 
 			return upload.onError(upload);
 
@@ -40,8 +40,9 @@ module.exports = function finalizeUpload(uploadID) {
 
 		upload.status = 'complete';
 
-		stella.$db.set('up.uploads.' + upload.id, upload);
-
+		stella.$db.del('up-uploads-' + upload.id);
+		stella.$db.del('up-uploaders-' + upload.id);
+		
 		return upload.onComplete(upload);
 
 	});
