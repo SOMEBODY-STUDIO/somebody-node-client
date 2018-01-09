@@ -23,7 +23,8 @@ module.exports = function initializeUpload(uploadID) {
 			locale : upload.locale,
 			parentID : upload.parentID,
 			objectType : upload.objectType,
-			title : upload.file.name
+			title : upload.file.name,
+			filename : upload.file.name
 		};
 	}
 
@@ -63,7 +64,7 @@ module.exports = function initializeUpload(uploadID) {
 
 		if (to === 'drive') {
 
-			var object = result.data.object;
+			var object = result.data;
 
 			upload.objectID = object._id;
 			upload.url = object.url;

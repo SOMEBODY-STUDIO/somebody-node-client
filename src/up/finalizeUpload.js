@@ -40,6 +40,7 @@ module.exports = function finalizeUpload(uploadID) {
 		}
 
 		upload.status = 'complete';
+		upload.object = result.data;
 
 		stella.$db.del('up-uploads-' + upload.id);
 		stella.$db.del('up-uploaders-' + upload.id);
