@@ -1,6 +1,6 @@
 {
   "name": "stella",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "The official node.js client for Stella",
   "keywords": [
     "Stella",
