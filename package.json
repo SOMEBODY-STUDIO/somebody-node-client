@@ -1,40 +1,29 @@
 {
-  "name": "stella",
+  "name": "somebody-node-client",
   "version": "1.0.7",
-  "description": "The official node.js client for Stella",
-  "keywords": [
-    "Stella",
-    "Stellaverse",
-    "Stella Drive",
-    "Stella API",
-    "Stella API Sugar",
-    "Stella API wrapper",
-    "Stella CMS",
-    "Stella CMS Wrapper",
-    "Headless CMS",
-    "CMS"
-  ],
-  "url": "https://github.com/Stellaverse/stella-node-client",
-  "homepage": "https://www.stellaverse.com",
+  "description": "The official node.js client for SOMEBODY",
+  "keywords": [],
+  "url": "https://github.com/SOMEBODY-STUDIO/somebody-node-client.git",
+  "homepage": "https://www.somebody.studio",
   "author": {
     "name": "Aaron J Ban",
-    "email": "ajb@stellaverse.com"
+    "email": "ops@somebody.studio"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Stellaverse/stella-node-client.git"
+    "url": "https://github.com/SOMEBODY-STUDIO/somebody-node-client.git"
   },
   "bugs": {
-    "url": "https://github.com/stellaverse/stella-node-client/issues"
+    "url": "https://github.com/SOMEBODY-STUDIO/somebody-node-client/issues"
   },
-  "readme": "Stella Node.js Client",
+  "readme": "SOMEBODY Node.js Client",
   "readmeFilename": "README.md",
   "dependencies": {
     "aws-sdk": "^2.175.0",
     "node-uuid": "^1.4.8",
     "request": "2.79.0"
   },
-  "main": "./stella-node-client.js",
+  "main": "./somebody-node-client.js",
   "devDependencies": {
     "assert": "^1.4.1",
     "chai": "^4.1.2",
