@@ -1,15 +1,12 @@
 
-
-
-
 module.exports = {
 	api : {
-		url : 'https://api.stellaverse.com',
+		url : 'https://api.somebody.studio',
 		version : 1
 	},
-	bucket : 'cdn.stellaverse.com',
+	bucket : 'cdn.somebody.studio',
 	projectID : '000000000000',
 	recaptcha : {
-		key : '6LeZ6RMTAAAAAFaHzXK76s60uMlBlKzSe5NsWUL1'
+		key : '6LdQx6gcAAAAACIM8ZreXDixmym-5YjiLEhmdDm-'
 	}
 }

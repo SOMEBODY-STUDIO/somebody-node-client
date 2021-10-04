@@ -1,4 +1,2 @@
 
-
-
-module.exports = require('./src/stella.js');
+module.exports = require('./src/somebody.js');

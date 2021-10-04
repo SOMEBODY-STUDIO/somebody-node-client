@@ -1,14 +1,11 @@
 
-
-
 var httpClient = require('request');
 
 
 
 module.exports = function (request, callback) {
-
 	var method = request.method.toLowerCase() || 'get';
-	var url = request.url || 'https://api.stellaverse.com';
+	var url = request.url || 'https://api.somebody.studio';
 	var api = request.api;
 	var version = request.version || 1;
 	var projectID = request.projectID || '000000000000';
@@ -17,10 +14,10 @@ module.exports = function (request, callback) {
 	var httpRequest = {
 		method : method,
 		headers : {
-			'Stella-Api' : api,
-			'Stella-Api-Version' : version,
-			'Stella-Project-Id' : projectID,
-			'Stella-Auth' : Buffer.from(auth,'utf8').toString('base64')
+			'Somebody-Api' : api,
+			'Somebody-Api-Version' : version,
+			'Somebody-Project-Id' : projectID,
+			'Somebody-Auth' : Buffer.from(auth,'utf8').toString('base64')
 		},
 		uri : url,
 		qs : request.params,
@@ -38,9 +35,9 @@ module.exports = function (request, callback) {
 	}
 
 	httpClient(httpRequest, function(error, response, body) {
-
 		if (error) {
 			console.log(error);
+			
 			return callback({
 				error : 'API Network Error'
 			});
@@ -53,7 +50,5 @@ module.exports = function (request, callback) {
 		}
 
 		return callback(body);
-
 	});
-
 }

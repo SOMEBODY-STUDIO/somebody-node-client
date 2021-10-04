@@ -1,15 +1,12 @@
 
-
-
 var AWS = require('aws-sdk');
 
 
 
 module.exports = function uploadFile(uploadID) {
+	var upload = somebody.$db.get('up-uploads-'+ uploadID);
 
-	var upload = stella.$db.get('up-uploads-'+ uploadID);
-
-	var bucket = upload.bucket || 'cdn.stellaverse.com';
+	var bucket = upload.bucket || 'cdn.somebody.studio';
 
 	var credentials = new AWS.Credentials({
 		accessKeyId : upload.credentials.AccessKeyId,
@@ -27,7 +24,7 @@ module.exports = function uploadFile(uploadID) {
 		}
 	});
 
-	stella.$db.set('up-uploaders-' + upload.id, s3.upload({
+	somebody.$db.set('up-uploaders-' + upload.id, s3.upload({
 		Key : upload.key,
 		ACL : 'private',
 		ContentType : upload.file.type,
@@ -36,8 +33,7 @@ module.exports = function uploadFile(uploadID) {
 		ServerSideEncryption : 'AES256'
 	}));
 
-	stella.$db.get('up-uploaders-' + upload.id).on('httpUploadProgress', function(event) {
-
+	somebody.$db.get('up-uploaders-' + upload.id).on('httpUploadProgress', function(event) {
 		var total = event.total;
 		var loaded = event.loaded;
 		var percent = loaded / total * 100;
@@ -55,30 +51,26 @@ module.exports = function uploadFile(uploadID) {
 		upload.rate = rate;
 		upload.remaining = remaining;
 
-		stella.$db.set('up-uploads-' + uploadID, upload);
+		somebody.$db.set('up-uploads-' + uploadID, upload);
 
 		return upload.onProgress(upload);
-
 	});
 
-	stella.$db.get('up-uploaders-' + upload.id).send(function(error, result) {
-
+	somebody.$db.get('up-uploaders-' + upload.id).send(function(error, result) {
 		if (error) {
 			upload.status = 'error';
 			upload.error = error;
-			console.error('[stella-node-client] Upload error, please try again.');
+			console.error('[somebody-node-client] Upload error, please try again.');
 			console.error(error);
-			stella.$db.del('up-uploads-' + upload.id);
-			stella.$db.del('up-uploaders-' + upload.id);
+			somebody.$db.del('up-uploads-' + upload.id);
+			somebody.$db.del('up-uploaders-' + upload.id);
 			upload.onError(upload);
 		} else {
 			upload.status = 'uploaded';
 		}
 
-		stella.$db.set('up-uploads-' + upload.id, upload);
+		somebody.$db.set('up-uploads-' + upload.id, upload);
 
-		return stella.up.finalizeUpload(upload.id);
-
+		return somebody.up.finalizeUpload(upload.id);
 	});
-
 }

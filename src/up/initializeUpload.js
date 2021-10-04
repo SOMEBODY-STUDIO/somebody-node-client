@@ -1,9 +1,6 @@
 
-
-
 module.exports = function initializeUpload(uploadID) {
-
-	var upload = stella.$db.get('up-uploads-' + uploadID);
+	var upload = somebody.$db.get('up-uploads-' + uploadID);
 
 	var to = upload.to || 'drive';
 
@@ -28,19 +25,18 @@ module.exports = function initializeUpload(uploadID) {
 		};
 	}
 
-	stella.api.request({
+	somebody.api.request({
 		method : 'post',
-		url : upload.api.url || stella.config.api.url,
+		url : upload.api.url || somebody.config.api.url,
 		api : api,
-		projectID : upload.projectID || stella.config.projectID,
+		projectID : upload.projectID || somebody.config.projectID,
 		params : params,
 		auth : upload.auth
 	}, function(result) {
-
 		if (result.error) {
 			upload.status = 'error';
 			upload.error = result.error;
-			stella.$db.del('up-uploads-' + upload.id);
+			somebody.$db.del('up-uploads-' + upload.id);
 			if (upload.onError) upload.onError(upload);
 			return;
 		}
@@ -48,7 +44,6 @@ module.exports = function initializeUpload(uploadID) {
 		upload.status = 'initialized';
 
 		if (to === 'account') {
-
 			var account = result.data.account;
 			upload.account = account;
 
@@ -59,11 +54,9 @@ module.exports = function initializeUpload(uploadID) {
 			upload.key = file.key;
 			upload.ext = file.ext;
 			upload.credentials = file.credentials;
-
 		}
 
 		if (to === 'drive') {
-
 			var object = result.data;
 
 			upload.objectID = object._id;
@@ -71,15 +64,12 @@ module.exports = function initializeUpload(uploadID) {
 			upload.key = object.key;
 			upload.ext = object.ext;
 			upload.credentials = object.credentials;
-
 		}
 
-		stella.$db.set('up-uploads-' + upload.id, upload);
+		somebody.$db.set('up-uploads-' + upload.id, upload);
 
 		upload.onInit(upload);
 
-		return stella.up.uploadFile(upload.id);
-
+		return somebody.up.uploadFile(upload.id);
 	});
-
 }

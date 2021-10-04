@@ -1,6 +1,4 @@
 
-
-
 module.exports = {
 	config : require('./config/config.js'),
 	api : {

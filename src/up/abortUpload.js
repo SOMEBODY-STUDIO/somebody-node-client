@@ -1,10 +1,7 @@
 
-
-
 module.exports = function abortUpload(uploadID) {
-
-	var upload = stella.$db.get('up-uploads-' + uploadID);
-	var uploader = stella.$db.get('up-uploaders-' + uploadID)
+	var upload = somebody.$db.get('up-uploads-' + uploadID);
+	var uploader = somebody.$db.get('up-uploaders-' + uploadID)
 
 	uploader.abort();
 
@@ -12,9 +9,8 @@ module.exports = function abortUpload(uploadID) {
 
 	upload.onAbort(upload);
 
-	stella.$db.del('up-uploads-' + uploadID);
-	stella.$db.del('up-uploaders-' + uploadID);
+	somebody.$db.del('up-uploads-' + uploadID);
+	somebody.$db.del('up-uploaders-' + uploadID);
 
-	return stella.up.finalizeUpload(upload);
-
+	return somebody.up.finalizeUpload(upload);
 }
