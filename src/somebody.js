@@ -1,5 +1,10 @@
 
 module.exports = {
+	$db : {
+		get : require('./$db/get.js'),
+		set : require('./$db/set.js'),
+		del : require('./$db/del.js')
+	},
 	config : require('./config/config.js'),
 	api : {
 		request : require('./api/request.js')

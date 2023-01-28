@@ -36,8 +36,11 @@ module.exports = function initializeUpload(uploadID) {
 		if (result.error) {
 			upload.status = 'error';
 			upload.error = result.error;
+
 			somebody.$db.del('up-uploads-' + upload.id);
+
 			if (upload.onError) upload.onError(upload);
+			
 			return;
 		}
 
