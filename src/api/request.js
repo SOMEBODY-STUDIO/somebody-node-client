@@ -1,4 +1,3 @@
-
 var httpClient = require('request');
 
 
@@ -20,7 +19,9 @@ module.exports = function (request, callback) {
 			'Somebody-Auth' : Buffer.from(auth,'utf8').toString('base64')
 		},
 		uri : url,
-		qs : request.params,
+		qs : {
+			qs : JSON.stringify(request.params)
+		},
 		body : request,
 		json : true
 	};
