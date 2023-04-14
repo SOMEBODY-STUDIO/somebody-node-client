@@ -19,9 +19,7 @@ module.exports = function (request, callback) {
 			'Somebody-Auth' : Buffer.from(auth,'utf8').toString('base64')
 		},
 		uri : url,
-		qs : {
-			qs : JSON.stringify(request.params)
-		},
+		qs : request.params,
 		body : request,
 		json : true
 	};
