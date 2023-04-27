@@ -9,7 +9,8 @@ module.exports = function initializeUpload(uploadID) {
 		var params = {
 			file : {
 				name : upload.file.name,
-				size : upload.file.size
+				size : upload.file.size,
+				metadata : upload.file.metadata
 			}
 		};
 	}
@@ -21,7 +22,8 @@ module.exports = function initializeUpload(uploadID) {
 			parentID : upload.parentID,
 			objectType : upload.objectType,
 			title : upload.file.name,
-			filename : upload.file.name
+			filename : upload.file.name,
+			metadata : upload.file.metadata
 		};
 	}
 
