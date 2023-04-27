@@ -10,7 +10,7 @@ module.exports = function initializeUpload(uploadID) {
 			file : {
 				name : upload.file.name,
 				size : upload.file.size,
-				metadata : upload.file.metadata
+				mediainfo : upload.file.mediainfo
 			}
 		};
 	}
@@ -23,7 +23,7 @@ module.exports = function initializeUpload(uploadID) {
 			objectType : upload.objectType,
 			title : upload.file.name,
 			filename : upload.file.name,
-			metadata : upload.file.metadata
+			mediainfo : upload.file.mediainfo
 		};
 	}
 
