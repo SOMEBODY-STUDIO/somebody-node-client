@@ -1,4 +1,3 @@
-
 module.exports = function initializeUpload(uploadID) {
 	var upload = somebody.$db.get('up-uploads-' + uploadID);
 
