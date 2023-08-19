@@ -1,4 +1,3 @@
-
 module.exports = {
 	api : {
 		url : 'https://api.somebody.studio',
@@ -7,6 +6,6 @@ module.exports = {
 	bucket : 'cdn.somebody.studio',
 	projectID : '000000000000',
 	recaptcha : {
-		key : '6LdQx6gcAAAAACIM8ZreXDixmym-5YjiLEhmdDm-'
+		key : '6LeoG7onAAAAADVzTYtovj8_RgJc5L7nMeI9LorC'
 	}
 }

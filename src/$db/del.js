@@ -1,4 +1,3 @@
-
 module.exports = function del(key) {
 	if (!somebody.$db) {
 		console.log('[somebody.$db] Error: No such $db.');

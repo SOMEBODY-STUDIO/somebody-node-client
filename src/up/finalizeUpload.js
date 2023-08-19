@@ -1,20 +1,9 @@
-
 module.exports = function finalizeUpload(uploadID) {
 	var upload = somebody.$db.get('up-uploads-' + uploadID);
-
-	if (upload.to === 'account') {
-		var api = 'accounts.files.finalizeUpload';
-		var params = {
-			fileURL : upload.url
-		};
-	}
-
-	if (upload.to === 'drive') {
-		var api = 'drive.objects.finalizeObjectUpload';
-		var params = {
-			objectID : upload.objectID
-		};
-	}
+	var api = 'drive.objects.finalizeObjectUpload';
+	var params = {
+		objectID : upload.objectID
+	};
 
 	somebody.api.request({
 		url : upload.api.url || somebody.config.api.url,

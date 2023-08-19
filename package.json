@@ -1,6 +1,6 @@
 {
   "name": "somebody-node-client",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "The official node.js client for SOMEBODY",
   "keywords": [],
   "url": "https://github.com/SOMEBODY-STUDIO/somebody-node-client.git",

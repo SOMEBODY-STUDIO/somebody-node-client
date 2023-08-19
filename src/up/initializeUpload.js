@@ -1,30 +1,14 @@
 module.exports = function initializeUpload(uploadID) {
 	var upload = somebody.$db.get('up-uploads-' + uploadID);
-
-	var to = upload.to || 'drive';
-
-	if (to === 'account') {
-		var api = 'accounts.files.insertFile';
-		var params = {
-			file : {
-				name : upload.file.name,
-				size : upload.file.size,
-				mediainfo : upload.file.mediainfo
-			}
-		};
-	}
-
-	if (to === 'drive') {
-		var api = 'drive.objects.insertObject';
-		var params = {
-			locale : upload.locale,
-			parentID : upload.parentID,
-			objectType : upload.objectType,
-			title : upload.file.name,
-			filename : upload.file.name,
-			mediainfo : upload.file.mediainfo
-		};
-	}
+	var api = 'drive.objects.insertObject';
+	var params = {
+		locale : upload.locale,
+		parentID : upload.parentID,
+		objectType : upload.objectType,
+		title : upload.file.name,
+		filename : upload.file.name,
+		mediainfo : upload.file.mediainfo
+	};
 
 	somebody.api.request({
 		method : 'post',
@@ -47,28 +31,13 @@ module.exports = function initializeUpload(uploadID) {
 
 		upload.status = 'initialized';
 
-		if (to === 'account') {
-			var account = result.data.account;
-			upload.account = account;
+		var object = result.data;
 
-			var file = result.data.file;
-
-			upload.objectID = null;
-			upload.url = file.url;
-			upload.key = file.key;
-			upload.ext = file.ext;
-			upload.credentials = file.credentials;
-		}
-
-		if (to === 'drive') {
-			var object = result.data;
-
-			upload.objectID = object._id;
-			upload.url = object.url;
-			upload.key = object.key;
-			upload.ext = object.ext;
-			upload.credentials = object.credentials;
-		}
+		upload.objectID = object._id;
+		upload.url = object.url;
+		upload.key = object.key;
+		upload.ext = object.ext;
+		upload.credentials = object.credentials;
 
 		somebody.$db.set('up-uploads-' + upload.id, upload);
 

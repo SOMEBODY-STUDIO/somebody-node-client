@@ -1,4 +1,3 @@
-
 module.exports = function abortUpload(uploadID) {
 	var upload = somebody.$db.get('up-uploads-' + uploadID);
 	var uploader = somebody.$db.get('up-uploaders-' + uploadID)
